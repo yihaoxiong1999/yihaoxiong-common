@@ -9,6 +9,20 @@ import org.junit.Test;
 public class StringUtilTest {
 
   @Test
+  public void testPhone() {
+    String str = "93812345678";
+    boolean b = StringUtil.isPhoneNumber(str);
+    System.out.println(b);
+  }
+
+  @Test
+  public void testEmail() {
+    String str = "numbe@163com";
+    boolean b = StringUtil.isEmail(str);
+    System.out.println(b);
+  }
+
+  @Test
   public void testHasLength() {
 
     String str = " ";
