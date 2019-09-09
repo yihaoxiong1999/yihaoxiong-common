@@ -4,6 +4,63 @@ import java.io.UnsupportedEncodingException;
 import java.util.Random;
 
 public class StringUtil {
+
+  /**
+   * 
+   * @Title: toHtml   
+   * @Description: 传来的字符转成 html 文本，遇到“\n”符时，要用<p></p>将这一段
+  字符包起来。 
+   * @return
+   * @return: String
+   */
+  public static String toHtml(String src) {
+
+    String str = src.replaceAll(System.getProperty("line.separator"), "|");
+    String[] split = str.split("\\|");
+    String newStr = "";
+    for (String string2 : split) {
+      newStr += "<p>" + string2 + "</p>";
+    }
+    return newStr;
+
+  }
+
+  /**
+   * 
+   * @Title: isPhoneNumber 
+   * @Description: 正则验证是否是手机号
+   * @param number
+   * @return
+   * @return: boolean
+   */
+  public static boolean isPhoneNumber(String number) {
+    //如果为空则返回false
+    if (!hasText(number))
+      return false;
+    //规则
+    String telRegex = "[1][3578]\\d{9}";
+    return number.matches(telRegex);
+
+  }
+
+  /**
+   * 
+   * @Title: isEmail 
+   * @Description: 校验是否为邮箱
+   * @param email
+   * @return
+   * @return: boolean
+   */
+  public static boolean isEmail(String email) {
+    //如果为空则返回false
+    if (!hasText(email))
+      return false;
+
+    String reg = "[A-z]+[A-z0-9_-]*\\@[A-z0-9]+\\.[A-z]+";
+    return email.matches(reg);
+
+  }
+
   //方法1：判断源字符串是否有值，空引号(空白字符串)也算没值 (5分)
   public static boolean hasLength(String src) {
     return null != src && src.length() > 0;
