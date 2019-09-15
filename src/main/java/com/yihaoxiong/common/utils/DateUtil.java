@@ -11,6 +11,22 @@ import java.util.Date;
  * <br>Date:2019年9月6日
  */
 public class DateUtil {
+
+  /**
+   * 
+   * <br>Description:TODO 当前日期减去对应月份
+   * <br>Author:衣豪雄(1315712803@qq.com)
+   * <br>Date:2019年9月15日
+   * @param src
+   * @return
+   */
+  public static Date getDateByMonthSub(Date date, Integer month) {
+    Calendar c = Calendar.getInstance();
+    c.setTime(date);
+    c.add(Calendar.MONTH, -month);
+    return c.getTime();
+  }
+
   /*
   * 方法1：(5分)
   * 给一个时间对象，返回该时间所在月的1日0时0分0秒。例如一个Date对象的值是2019-05-18 11:37:22
